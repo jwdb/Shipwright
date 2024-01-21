@@ -2098,7 +2098,7 @@ std::map<RandomizerCheck, RandomizerInf> rcToRandomizerInf = {
     { RC_WATER_TEMPLE_MQ_LOWEST_GS_POT_2,                               RAND_INF_WATER_TEMPLE_MQ_LOWEST_GS_POT_2 },
     { RC_WATER_TEMPLE_MQ_LOWEST_GS_POT_3,                               RAND_INF_WATER_TEMPLE_MQ_LOWEST_GS_POT_3 },
     { RC_WATER_TEMPLE_MQ_LOWEST_GS_POT_4,                               RAND_INF_WATER_TEMPLE_MQ_LOWEST_GS_POT_4 },
-    { RC_WATER_TEMPLE_MQ_BOSS_KEY_POT,                                  RAND_INF_WATER_TEMPLE_MQ_BOSS_KEY_POT }
+    { RC_WATER_TEMPLE_MQ_BOSS_KEY_POT,                                  RAND_INF_WATER_TEMPLE_MQ_BOSS_KEY_POT },
 
     { RC_KF_LINKS_HOUSE_COW,                                          RAND_INF_COWS_MILKED_KF_LINKS_HOUSE_COW },
     { RC_LW_DEKU_SCRUB_NEAR_DEKU_THEATER_RIGHT,                       RAND_INF_SCRUBS_PURCHASED_LW_DEKU_SCRUB_NEAR_DEKU_THEATER_RIGHT },
