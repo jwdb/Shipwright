@@ -10,6 +10,7 @@
 typedef enum {
     GI_SCHEME_SAIL,
     GI_SCHEME_CROWD_CONTROL,
+    GI_SCHEME_ANCHOR,
 } GIScheme;
 
 typedef enum {
@@ -101,6 +102,11 @@ void GameInteractor_SetTriforceHuntCreditsWarpActive(uint8_t state);
 #include <vector>
 #include <functional>
 #include <string>
+
+#ifdef ENABLE_REMOTE_CONTROL
+#include <SDL2/SDL_net.h>
+#include <nlohmann/json.hpp>
+#endif
 
 #ifdef ENABLE_REMOTE_CONTROL
 #include <SDL2/SDL_net.h>
@@ -255,6 +261,7 @@ public:
         static void SetFlag(int16_t flagType, int16_t chestNum);
         static void UnsetFlag(int16_t flagType, int16_t chestNum);
         static void AddOrRemoveHealthContainers(int16_t amount);
+        static void GiveItem(uint16_t modId, uint16_t itemId);
         static void AddOrRemoveMagic(int8_t amount);
         static void HealOrDamagePlayer(int16_t hearts);
         static void SetPlayerHealth(int16_t hearts);

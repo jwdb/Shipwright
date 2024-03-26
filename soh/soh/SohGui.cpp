@@ -36,6 +36,7 @@
 #ifdef ENABLE_REMOTE_CONTROL
 #include "Enhancements/crowd-control/CrowdControl.h"
 #include "Enhancements/game-interactor/GameInteractor_Sail.h"
+#include "Enhancements/game-interactor/GameInteractor_Anchor.h"
 #endif
 
 #include "Enhancements/game-interactor/GameInteractor.h"
@@ -133,6 +134,10 @@ namespace SohGui {
     std::shared_ptr<ItemTrackerSettingsWindow> mItemTrackerSettingsWindow;
     std::shared_ptr<ItemTrackerWindow> mItemTrackerWindow;
     std::shared_ptr<RandomizerSettingsWindow> mRandomizerSettingsWindow;
+#ifdef ENABLE_REMOTE_CONTROL
+    std::shared_ptr<AnchorPlayerLocationWindow> mAnchorPlayerLocationWindow;
+    std::shared_ptr<AnchorLogWindow> mAnchorLogWindow;
+#endif
 
     std::shared_ptr<AdvancedResolutionSettings::AdvancedResolutionSettingsWindow> mAdvancedResolutionSettingsWindow;
 
@@ -201,6 +206,12 @@ namespace SohGui {
         gui->AddGuiWindow(mRandomizerSettingsWindow);
         mAdvancedResolutionSettingsWindow = std::make_shared<AdvancedResolutionSettings::AdvancedResolutionSettingsWindow>("gAdvancedResolutionEditorEnabled", "Advanced Resolution Settings");
         gui->AddGuiWindow(mAdvancedResolutionSettingsWindow);
+#ifdef ENABLE_REMOTE_CONTROL
+        mAnchorPlayerLocationWindow = std::make_shared<AnchorPlayerLocationWindow>("gRemote.AnchorPlayerLocationWindow", "Anchor Player Location Window");
+        gui->AddGuiWindow(mAnchorPlayerLocationWindow);
+        mAnchorLogWindow = std::make_shared<AnchorLogWindow>("gRemote.AnchorLogWindow", "Anchor Log");
+        gui->AddGuiWindow(mAnchorLogWindow);
+#endif
     }
 
     void Destroy() {
@@ -226,5 +237,9 @@ namespace SohGui {
         mSohMenuBar = nullptr;
         mInputViewer = nullptr;
         mInputViewerSettings = nullptr;
+#ifdef ENABLE_REMOTE_CONTROL
+        mAnchorPlayerLocationWindow = nullptr;
+        mAnchorLogWindow = nullptr;
+#endif
     }
 }

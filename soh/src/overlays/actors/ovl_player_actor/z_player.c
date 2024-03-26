@@ -31,6 +31,9 @@
 #include "soh/Enhancements/randomizer/randomizer_grotto.h"
 #include "soh/Enhancements/randomizer/fishsanity.h"
 #include "soh/frame_interpolation.h"
+#ifdef ENABLE_REMOTE_CONTROL
+#include "soh/Enhancements/game-interactor/GameInteractor_Anchor.h"
+#endif
 
 #include <string.h>
 #include <stdlib.h>
@@ -5527,7 +5530,10 @@ s32 Player_ActionChange_13(Player* this, PlayState* play) {
                             ((this->exchangeItemId != EXCH_ITEM_BEAN) || (this->itemAction == PLAYER_IA_MAGIC_BEAN))) {
                             if (this->exchangeItemId == EXCH_ITEM_BEAN) {
                                 Inventory_ChangeAmmo(ITEM_BEAN, -1);
-                                func_80835DE4(play, this, Player_Action_8084279C, 0);
+#ifdef ENABLE_REMOTE_CONTROL
+                                Anchor_UpdateBeansCount(AMMO(ITEM_BEAN));
+#endif
+                                func_80835DE4(play, this, func_8084279C, 0);
                                 this->stateFlags1 |= PLAYER_STATE1_IN_CUTSCENE;
                                 this->av2.actionVar2 = 0x50;
                                 this->av1.actionVar1 = -1;
@@ -14564,6 +14570,12 @@ void Player_UpdateBunnyEars(Player* this) {
     } else {
         sBunnyEarKinematics.rot.z = 0;
     }
+
+    #ifdef ENABLE_REMOTE_CONTROL
+    gSaveContext.playerData.bunnyEarX = sBunnyEarKinematics.rot.x;
+    gSaveContext.playerData.bunnyEarY = sBunnyEarKinematics.rot.y;
+    gSaveContext.playerData.bunnyEarZ = sBunnyEarKinematics.rot.z;
+    #endif
 }
 
 s32 Player_ActionChange_7(Player* this, PlayState* play) {

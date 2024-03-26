@@ -11,6 +11,9 @@
 #include <soh/Enhancements/item-tables/ItemTableManager.h>
 #include "soh/Enhancements/nametag.h"
 #include "objects/object_gi_compass/object_gi_compass.h"
+#ifdef ENABLE_REMOTE_CONTROL
+#include "soh/Enhancements/game-interactor/GameInteractor_Anchor.h"
+#endif
 
 #include "src/overlays/actors/ovl_En_Bb/z_en_bb.h"
 #include "src/overlays/actors/ovl_En_Dekubaba/z_en_dekubaba.h"
@@ -1750,4 +1753,7 @@ void InitMods() {
     RegisterPatchHandHandler();
     RegisterHurtContainerModeHandler();
     RegisterPauseMenuHooks();
+    #ifdef ENABLE_REMOTE_CONTROL
+    Anchor_RegisterHooks();
+    #endif
 }

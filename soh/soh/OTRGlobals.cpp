@@ -87,6 +87,8 @@
 #include "Enhancements/game-interactor/GameInteractor_Sail.h"
 CrowdControl* CrowdControl::Instance;
 GameInteractorSail* GameInteractorSail::Instance;
+#include "Enhancements/game-interactor/GameInteractor_Anchor.h"
+GameInteractorAnchor* GameInteractorAnchor::Instance;
 #endif
 
 #include "Enhancements/mods.h"
@@ -1117,6 +1119,7 @@ extern "C" void InitOTR() {
 #ifdef ENABLE_REMOTE_CONTROL
     CrowdControl::Instance = new CrowdControl();
     GameInteractorSail::Instance = new GameInteractorSail();
+    GameInteractorAnchor::Instance = new GameInteractorAnchor();
 #endif
 
     clearMtx = (uintptr_t)&gMtxClear;
@@ -1145,6 +1148,16 @@ extern "C" void InitOTR() {
     srand(now);
 #ifdef ENABLE_REMOTE_CONTROL
     SDLNet_Init();
+    // This client is no longer compatible with the server running on the old default port.
+    // Eventually once we shut the old server down we will be able to remove this.
+    std::string tmpIdForReplacement = CVarGetString("gRemote.IP", "127.0.0.1");
+    if (
+        CVarGetInteger("gRemote.Scheme", GI_SCHEME_SAIL) == GI_SCHEME_ANCHOR && 
+        tmpIdForReplacement == "anchor.proxysaw.dev"
+    ) {
+        CVarSetInteger("gRemote.Port", 43385);
+    }
+
     if (CVarGetInteger("gRemote.Enabled", 0)) {
         switch (CVarGetInteger("gRemote.Scheme", GI_SCHEME_SAIL)) {
             case GI_SCHEME_SAIL:
@@ -1152,6 +1165,9 @@ extern "C" void InitOTR() {
                 break;
             case GI_SCHEME_CROWD_CONTROL:
                 CrowdControl::Instance->Enable();
+                break;
+            case GI_SCHEME_ANCHOR:
+                GameInteractorAnchor::Instance->Enable();
                 break;
         }
     }
@@ -1178,6 +1194,9 @@ extern "C" void DeinitOTR() {
                 break;
             case GI_SCHEME_CROWD_CONTROL:
                 CrowdControl::Instance->Disable();
+                break;
+            case GI_SCHEME_ANCHOR:
+                GameInteractorAnchor::Instance->Disable();
                 break;
         }
     }
