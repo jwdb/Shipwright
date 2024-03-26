@@ -1397,6 +1397,7 @@ void GenerateItemPool() {
   }
   PendingJunkPool.clear();
 }
+}
 
 void AddJunk() {
   SPDLOG_DEBUG("HAD TO PLACE EXTRA JUNK ");

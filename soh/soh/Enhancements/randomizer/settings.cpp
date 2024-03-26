@@ -662,8 +662,8 @@ void Settings::CreateOptions() {
         &mOptions[RSK_SHUFFLE_SWIM],
         &mOptions[RSK_SHUFFLE_WEIRD_EGG],
         &mOptions[RSK_SHUFFLE_GERUDO_MEMBERSHIP_CARD],
-        &mOptions[RSK_SHUFFLE_POTS]
-        &mOptions[RSK_SHUFFLE_FISHING_POLE],
+        &mOptions[RSK_SHUFFLE_POTS],
+        &mOptions[RSK_SHUFFLE_FISHING_POLE]
     }, false, WidgetContainerType::COLUMN);
     mOptionGroups[RSG_SHUFFLE_NPCS_IMGUI] = OptionGroup::SubGroup("Shuffle NPCs & Merchants", {
         &mOptions[RSK_SHOPSANITY],

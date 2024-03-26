@@ -2575,6 +2575,8 @@ PotIdentity Randomizer::IdentifyPot(s32 sceneNum, s32 posX, s32 posZ) {
     }
 
     return potIdentity;
+}
+
 FishIdentity Randomizer::IdentifyFish(s32 sceneNum, s32 actorParams) {
     struct FishIdentity fishIdentity;
 

@@ -1399,7 +1399,6 @@ void HintTable_Init_Exclude_Overworld() {
                        Text{"a #scrub underground duo# sells", /*french*/"le #duo de peste Mojo dans le désert# vend", /*spanish*/"un #par de dekus subterráneos# del desierto venden"},
   });
 
-
     hintTable[RHT_LLR_STABLES_LEFT_COW] = HintText::Exclude({
                        //obscure text
                        Text{"a #cow in a stable# gifts", /*french*/"la #vache dans l'étable# donne", /*spanish*/"una #vaca del establo# brinda"},
@@ -1494,7 +1493,7 @@ void HintTable_Init_Exclude_Overworld() {
                        // obscure text
                        Text{ "a #pot in Hyrule Castle# contains", /*french*/ "TRANSLATION NEEDED", /*spanish*/ "" },
     });
-}
+    
     hintTable[RHT_BEEHIVE_CHEST_GROTTO] = HintText::Exclude({
                        //obscure text
                        Text{"a #beehive above a chest# hides", /*french*/"", /*spanish*/"una #colmena sobre un cofre# esconde"},
