@@ -36,6 +36,11 @@ void AreaTable_Init_ZorasDomain() {
                   LocationAccess(RC_ZR_GS_ABOVE_BRIDGE,                   {[]{return logic->IsAdult && logic->CanUse(RG_HOOKSHOT) && logic->AtNight && logic->CanGetNightTimeGS;}}),
                   LocationAccess(RC_ZR_NEAR_GROTTOS_GOSSIP_STONE,         {[]{return true;}}),
                   LocationAccess(RC_ZR_NEAR_DOMAIN_GOSSIP_STONE,          {[]{return true;}}),
+                  LocationAccess(RC_ZD_NEAR_SHOP_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZD_NEAR_SHOP_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZD_NEAR_SHOP_POT_3, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZD_NEAR_SHOP_POT_4, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZD_NEAR_SHOP_POT_5, {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_ZR_FRONT,            {[]{return true;}}),
@@ -160,6 +165,13 @@ void AreaTable_Init_ZorasDomain() {
                   LocationAccess(RC_ZF_GS_HIDDEN_CAVE,           {[]{return logic->CanUse(RG_SILVER_GAUNTLETS) && logic->CanBlastOrSmash && logic->HookshotOrBoomerang && logic->IsAdult && logic->AtNight && logic->CanGetNightTimeGS;}}),
                   LocationAccess(RC_FAIRY_GOSSIP_STONE,       {[]{return true;}}),
                   LocationAccess(RC_JABU_GOSSIP_STONE,        {[]{return true;}}),
+                  LocationAccess(RC_ZF_HIDDEN_CAVE_POT_1,  {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZF_HIDDEN_CAVE_POT_2,  {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZF_HIDDEN_CAVE_POT_3,  {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZF_NEAR_JABU_POT_1,  {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZF_NEAR_JABU_POT_2,  {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZF_NEAR_JABU_POT_3,  {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_ZF_NEAR_JABU_POT_4,  {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_ZD_BEHIND_KING_ZORA,       {[]{return true;}}),

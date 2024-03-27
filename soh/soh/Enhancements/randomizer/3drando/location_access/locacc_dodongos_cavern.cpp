@@ -33,6 +33,30 @@ void AreaTable_Init_DodongosCavern() {
                   LocationAccess(RC_DODONGOS_CAVERN_MAP_CHEST,        {[]{return Here(RR_DODONGOS_CAVERN_LOBBY, []{return logic->CanBlastOrSmash || logic->GoronBracelet;});}}),
                   LocationAccess(RC_DODONGOS_CAVERN_DEKU_SCRUB_LOBBY, {[]{return logic->CanStunDeku || logic->GoronBracelet;}}),
                   LocationAccess(RC_DODONGOS_CAVERN_GOSSIP_STONE,     {[]{return Here(RR_DODONGOS_CAVERN_LOBBY, []{return logic->CanBlastOrSmash || logic->GoronBracelet;});}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SIDE_ROOM_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SIDE_ROOM_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SIDE_ROOM_POT_3,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SIDE_ROOM_POT_4,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SIDE_ROOM_POT_5,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SIDE_ROOM_POT_6,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_TORCH_ROOM_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_TORCH_ROOM_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_TORCH_ROOM_POT_3,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_TORCH_ROOM_POT_4,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_STAIRCASE_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_STAIRCASE_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_STAIRCASE_POT_3,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_STAIRCASE_POT_4,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SINGLE_EYE_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_SINGLE_EYE_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_BLADE_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_BLADE_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_DOUBLE_EYE_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_DOUBLE_EYE_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_BACK_ROOM_POT_1,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_BACK_ROOM_POT_2,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_BACK_ROOM_POT_3,     {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_BACK_ROOM_POT_4,     {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_DODONGOS_CAVERN_BEGINNING,    {[]{return true;}}),
@@ -74,7 +98,12 @@ void AreaTable_Init_DodongosCavern() {
                   Entrance(RR_DODONGOS_CAVERN_LOWER_LIZALFOS, {[]{return true;}}),
   });
 
-  areaTable[RR_DODONGOS_CAVERN_LOWER_LIZALFOS] = Area("Dodongos Cavern Lower Lizalfos", "Dodongos Cavern", RA_DODONGOS_CAVERN, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_DODONGOS_CAVERN_LOWER_LIZALFOS] = Area("Dodongos Cavern Lower Lizalfos", "Dodongos Cavern", RA_DODONGOS_CAVERN, NO_DAY_NIGHT_CYCLE, {}, {
+                  LocationAccess(RC_DODONGOS_CAVERN_LIZALFOS_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_LIZALFOS_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_LIZALFOS_POT_3, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DODONGOS_CAVERN_LIZALFOS_POT_4, {[]{return logic->CanBreakPots;}}),
+  }, {
                   //Exits
                   Entrance(RR_DODONGOS_CAVERN_NEAR_LOWER_LIZALFOS, {[]{return Here(RR_DODONGOS_CAVERN_LOWER_LIZALFOS, []{return logic->CanUse(RG_FAIRY_BOW) || logic->CanUse(RG_FAIRY_SLINGSHOT) || logic->CanUse(RG_STICKS) || logic->CanUse(RG_KOKIRI_SWORD) ||
                     logic->CanUse(RG_MASTER_SWORD) || logic->CanUse(RG_BIGGORON_SWORD) || logic->CanUse(RG_MEGATON_HAMMER) || logic->HasExplosives;});}}),

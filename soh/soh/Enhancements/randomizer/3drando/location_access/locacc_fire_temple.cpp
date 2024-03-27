@@ -8,7 +8,23 @@ void AreaTable_Init_FireTemple() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_FIRE_TEMPLE_ENTRYWAY] = Area("Fire Temple Entryway", "Fire Temple", RA_FIRE_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_FIRE_TEMPLE_ENTRYWAY] = Area("Fire Temple Entryway", "Fire Temple", RA_FIRE_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {
+LocationAccess(    RC_FIRE_TEMPLE_NEAR_BOSS_POT_1,   {[]{return logic->CanBreakPots;}}),       
+LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_2,       {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_3,       {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_4,       {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_BIG_LAVA_POT_1,        {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_BIG_LAVA_POT_2,        {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_BIG_LAVA_POT_3,        {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_LEFT_POT_1, {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_LEFT_POT_2, {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_LEFT_POT_3, {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_LEFT_POT_4, {[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_RIGHT_POT_1,{[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_RIGHT_POT_2,{[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_RIGHT_POT_3,{[]{return logic->CanBreakPots;}}),   
+LocationAccess(RC_FIRE_TEMPLE_FLAME_MAZE_RIGHT_POT_4,{[]{return logic->CanBreakPots;}}),   
+  }, {
                   //Exits
                   Entrance(RR_FIRE_TEMPLE_FIRST_ROOM, {[]{return randoCtx->GetDungeon(FIRE_TEMPLE)->IsVanilla();}}),
                   Entrance(RR_FIRE_TEMPLE_MQ_LOWER,   {[]{return randoCtx->GetDungeon(FIRE_TEMPLE)->IsMQ();}}),

@@ -1461,11 +1461,10 @@ void DrawLocation(RandomizerCheck rc) {
                 gSaveContext.checkTrackerData[rc].skipped = true;
                 areaChecksGotten[loc->GetArea()]++;
             }
-            UpdateOrdering(loc->GetArea());
 #ifdef ENABLE_REMOTE_CONTROL
-            Anchor_UpdateCheckData(rcObj.rc);
+            Anchor_UpdateCheckData(rc);
 #endif
-            UpdateOrdering(rcObj.rcArea);
+            UpdateOrdering(loc->GetArea());
             UpdateInventoryChecks();
             SaveManager::Instance->SaveSection(gSaveContext.fileNum, sectionId, true);
         }

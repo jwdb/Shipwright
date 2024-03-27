@@ -8,7 +8,24 @@ void AreaTable_Init_SpiritTemple() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_SPIRIT_TEMPLE_ENTRYWAY] = Area("Spirit Temple Entryway", "Spirit Temple", RA_SPIRIT_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_SPIRIT_TEMPLE_ENTRYWAY] = Area("Spirit Temple Entryway", "Spirit Temple", RA_SPIRIT_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {
+    LocationAccess(    RC_SPIRIT_TEMPLE_LOBBY_POT_1,         {[]{return logic->CanBreakPots;}}),        
+    LocationAccess(RC_SPIRIT_TEMPLE_LOBBY_POT_2,             {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_ANUBIS_POT_1,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_ANUBIS_POT_2,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_ANUBIS_POT_3,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_ANUBIS_POT_4,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CHILD_CLIMB_POT_1,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_AFTER_SUN_BLOCK_POT_1,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_AFTER_SUN_BLOCK_POT_2,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CENTRAL_CHAMBER_POT_1,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CENTRAL_CHAMBER_POT_2,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CENTRAL_CHAMBER_POT_3,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CENTRAL_CHAMBER_POT_4,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CENTRAL_CHAMBER_POT_5,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_CENTRAL_CHAMBER_POT_6,   {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_SPIRIT_TEMPLE_BEAMOS_HALL_POT_1,       {[]{return logic->CanBreakPots;}}),    
+  }, {
                   //Exits
                   Entrance(RR_SPIRIT_TEMPLE_LOBBY,                  {[]{return randoCtx->GetDungeon(SPIRIT_TEMPLE)->IsVanilla();}}),
                   Entrance(RR_SPIRIT_TEMPLE_MQ_LOBBY,               {[]{return randoCtx->GetDungeon(SPIRIT_TEMPLE)->IsMQ();}}),

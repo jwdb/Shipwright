@@ -166,6 +166,10 @@ void AreaTable_Init_GerudoValley() {
                   LocationAccess(RC_WASTELAND_CHEST,            {[]{return logic->HasFireSource;}}),
                   LocationAccess(RC_WASTELAND_BOMBCHU_SALESMAN, {[]{return logic->AdultsWallet && (logic->CanJumpslash || logic->CanUse(RG_HOVER_BOOTS)) ;}}),
                   LocationAccess(RC_WASTELAND_GS,               {[]{return logic->HookshotOrBoomerang;}}),
+                  LocationAccess(RC_WASTELAND_NEAR_GS_POT_1,    {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_WASTELAND_NEAR_GS_POT_2,    {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_WASTELAND_NEAR_GS_POT_3,    {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_WASTELAND_NEAR_GS_POT_4,    {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_WASTELAND_NEAR_COLOSSUS, {[]{return randoCtx->GetTrickOption(RT_LENS_HW) || logic->CanUse(RG_LENS_OF_TRUTH);}}),

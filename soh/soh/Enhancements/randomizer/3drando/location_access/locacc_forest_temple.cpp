@@ -8,7 +8,27 @@ void AreaTable_Init_ForestTemple() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_FOREST_TEMPLE_ENTRYWAY] = Area("Forest Temple Entryway", "Forest Temple", RA_FOREST_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_FOREST_TEMPLE_ENTRYWAY] = Area("Forest Temple Entryway", "Forest Temple", RA_FOREST_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {
+    LocationAccess(RC_FOREST_TEMPLE_LOBBY_POT_1,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOBBY_POT_2,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOBBY_POT_3,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOBBY_POT_4,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOBBY_POT_5,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOBBY_POT_6,            {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOWER_STALFOS_POT_1,    {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_LOWER_STALFOS_POT_2,    {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_GREEN_POE_POT_1,        {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_GREEN_POE_POT_2,        {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_UPPER_STALFOS_POT_1,    {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_UPPER_STALFOS_POT_2,    {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_UPPER_STALFOS_POT_3,    {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_UPPER_STALFOS_POT_4,    {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_BLUE_POE_POT_1,         {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_BLUE_POE_POT_2,         {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_BLUE_POE_POT_3,         {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_FROZEN_EYE_POT_1,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_FOREST_TEMPLE_FROZEN_EYE_POT_2,       {[]{return logic->CanBreakPots;}}),    
+  }, {
                   //Exits
                   Entrance(RR_FOREST_TEMPLE_FIRST_ROOM, {[]{return randoCtx->GetDungeon(FOREST_TEMPLE)->IsVanilla();}}),
                   Entrance(RR_FOREST_TEMPLE_MQ_LOBBY,   {[]{return randoCtx->GetDungeon(FOREST_TEMPLE)->IsMQ();}}),

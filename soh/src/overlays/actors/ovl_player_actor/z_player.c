@@ -5533,7 +5533,7 @@ s32 Player_ActionChange_13(Player* this, PlayState* play) {
 #ifdef ENABLE_REMOTE_CONTROL
                                 Anchor_UpdateBeansCount(AMMO(ITEM_BEAN));
 #endif
-                                func_80835DE4(play, this, func_8084279C, 0);
+                                func_80835DE4(play, this, Player_Action_8084279C, 0);
                                 this->stateFlags1 |= PLAYER_STATE1_IN_CUTSCENE;
                                 this->av2.actionVar2 = 0x50;
                                 this->av1.actionVar1 = -1;
@@ -6828,7 +6828,7 @@ s32 Player_ActionChange_2(Player* this, PlayState* play) {
                                            giEntry.itemId == ITEM_MAGIC_SMALL || giEntry.itemId == ITEM_MAGIC_LARGE);
 
                 // Show cutscene when picking up a item.
-                if (showItemCutscene && !skipItemCutscene && !skipItemCutsceneRando && !isPotItemToSkip) {
+                if (showItemCutscene && !skipItemCutscene && !skipItemCutsceneRando) {
 
                     Player_DetachHeldActor(play, this);
                     func_8083AE40(this, giEntry.objectId);

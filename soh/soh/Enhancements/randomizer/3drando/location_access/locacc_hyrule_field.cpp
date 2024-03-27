@@ -68,6 +68,8 @@ void AreaTable_Init_HyruleField() {
                   LocationAccess(RC_HF_GS_COW_GROTTO,           {[]{return logic->HasFireSource && logic->HookshotOrBoomerang;}}),
                   LocationAccess(RC_HF_COW_GROTTO_COW,          {[]{return logic->HasFireSource && logic->CanUse(RG_EPONAS_SONG);}}),
                   LocationAccess(RC_HF_COW_GROTTO_GOSSIP_STONE, {[]{return logic->HasFireSource;}}),
+                  LocationAccess(RC_HF_COW_GROTTO_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_HF_COW_GROTTO_POT_2, {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_HYRULE_FIELD, {[]{return true;}}),
@@ -230,6 +232,16 @@ void AreaTable_Init_HyruleField() {
                   LocationAccess(RC_LLR_GS_RAIN_SHED,    {[]{return logic->IsChild && logic->AtNight && logic->CanGetNightTimeGS;}}),
                   LocationAccess(RC_LLR_GS_HOUSE_WINDOW, {[]{return logic->IsChild && logic->HookshotOrBoomerang && logic->AtNight && logic->CanGetNightTimeGS;}}),
                   LocationAccess(RC_LLR_GS_BACK_WALL,    {[]{return logic->IsChild && logic->HookshotOrBoomerang && logic->AtNight && logic->CanGetNightTimeGS;}}),
+                  LocationAccess(RC_LLR_FRONT_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_FRONT_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_FRONT_POT_3, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_FRONT_POT_4, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_RAIN_SHED_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_RAIN_SHED_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_RAIN_SHED_POT_3, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_TALONS_HOUSE_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_TALONS_HOUSE_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_LLR_TALONS_HOUSE_POT_3, {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_HYRULE_FIELD,     {[]{return true;}}),

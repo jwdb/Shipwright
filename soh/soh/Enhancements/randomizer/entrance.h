@@ -127,7 +127,7 @@ class EntranceShuffler {
     std::vector<Entrance*> AssumeEntrancePool(std::vector<Entrance*>& entrancePool);
     bool ShuffleOneWayPriorityEntrances(std::map<std::string, PriorityEntrance>& oneWayPriorities,
                                         EntrancePools oneWayEntrancePools, EntrancePools oneWayTargetEntrancePools,
-                                        int retryCount = 2);
+                                        int retryCount = 7);
     bool PlaceOneWayPriorityEntrance(std::string priorityName, std::list<RandomizerRegion>& allowedRegions,
                                      std::list<EntranceType>& allowedTypes, std::vector<EntrancePair>& rollbacks,
                                      EntrancePools oneWayEntrancePools, EntrancePools oneWayTargetEntrancePools);

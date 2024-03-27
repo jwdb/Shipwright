@@ -8,7 +8,27 @@ void AreaTable_Init_BottomOfTheWell() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_BOTTOM_OF_THE_WELL_ENTRYWAY] = Area("Bottom of the Well Entryway", "Bottom of the Well", RA_BOTTOM_OF_THE_WELL, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_BOTTOM_OF_THE_WELL_ENTRYWAY] = Area("Bottom of the Well Entryway", "Bottom of the Well", RA_BOTTOM_OF_THE_WELL, NO_DAY_NIGHT_CYCLE, {}, {
+    LocationAccess(    RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_1,   {[]{return logic->CanBreakPots;}}),        
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_2,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_3,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_4,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_5,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_6,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_7,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_8,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_9,       {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_10,      {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_11,      {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_BASEMENT_POT_12,      {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_LEFT_SIDE_POT_1,      {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_LEFT_SIDE_POT_2,      {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_LEFT_SIDE_POT_3,      {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_NEAR_ENTRANCE_POT_1,  {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_NEAR_ENTRANCE_POT_2,  {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_FIRE_KEESE_POT_1,     {[]{return logic->CanBreakPots;}}),    
+    LocationAccess(RC_BOTTOM_OF_THE_WELL_UNDERWATER_POT,       {[]{return logic->CanBreakPots;}}),    
+  }, {
                   //Exits
                   Entrance(RR_BOTTOM_OF_THE_WELL_MAIN_AREA,    {[]{return randoCtx->GetDungeon(Rando::BOTTOM_OF_THE_WELL)->IsVanilla() && logic->IsChild && (logic->CanChildAttack || logic->Nuts);}}),
                   Entrance(RR_BOTTOM_OF_THE_WELL_MQ_PERIMETER, {[]{return randoCtx->GetDungeon(Rando::BOTTOM_OF_THE_WELL)->IsMQ()      && logic->IsChild;}}),

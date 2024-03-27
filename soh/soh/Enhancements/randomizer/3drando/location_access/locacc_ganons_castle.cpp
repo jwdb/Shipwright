@@ -9,7 +9,42 @@ void AreaTable_Init_GanonsCastle() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_GANONS_CASTLE_ENTRYWAY] = Area("Ganon's Castle Entryway", "Ganon's Castle", RA_GANONS_CASTLE, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_GANONS_CASTLE_ENTRYWAY] = Area("Ganon's Castle Entryway", "Ganon's Castle", RA_GANONS_CASTLE, NO_DAY_NIGHT_CYCLE, {}, {
+LocationAccess(    RC_GANONS_CASTLE_FOREST_TRIAL_POT_1,   {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_FOREST_TRIAL_POT_2,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_FIRE_TRIAL_POT_2,         {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_FIRE_TRIAL_POT_1,         {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_WATER_TRIAL_POT_1,        {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_WATER_TRIAL_POT_2,        {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_WATER_TRIAL_POT_3,        {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_SHADOW_TRIAL_POT_1,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_SHADOW_TRIAL_POT_2,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_SHADOW_TRIAL_POT_3,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_SHADOW_TRIAL_POT_4,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_SPIRIT_TRIAL_POT_1,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_SPIRIT_TRIAL_POT_2,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_LIGHT_TRIAL_BOULDER_POT_1,{[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_LIGHT_TRIAL_POT_1,        {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_LIGHT_TRIAL_POT_2,        {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_1,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_2,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_3,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_4,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_5,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_6,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_7,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_8,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_9,       {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_10,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_11,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_12,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_13,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_14,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_15,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_16,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_17,      {[]{return logic->CanBreakPots;}}),  
+LocationAccess(RC_GANONS_CASTLE_GANONS_TOWER_POT_18,      {[]{return logic->CanBreakPots;}}),  
+  }, {
                   //Exits
                   Entrance(RR_GANONS_CASTLE_LOBBY,    {[]{return randoCtx->GetDungeon(GANONS_CASTLE)->IsVanilla();}}),
                   Entrance(RR_GANONS_CASTLE_MQ_LOBBY, {[]{return randoCtx->GetDungeon(GANONS_CASTLE)->IsMQ();}}),

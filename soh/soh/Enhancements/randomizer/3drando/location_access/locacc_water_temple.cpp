@@ -8,7 +8,29 @@ void AreaTable_Init_WaterTemple() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_WATER_TEMPLE_ENTRYWAY] = Area("Water Temple Entryway", "Water Temple", RA_WATER_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_WATER_TEMPLE_ENTRYWAY] = Area("Water Temple Entryway", "Water Temple", RA_WATER_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {
+LocationAccess(    RC_WATER_TEMPLE_MAIN_LEVEL_2_POT_1, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_2_POT_2, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_1_POT_1, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_1_POT_2, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_TORCH_POT_1,        {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_TORCH_POT_2,        {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_NEAR_COMPASS_POT_1, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_NEAR_COMPASS_POT_2, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_NEAR_COMPASS_POT_3, {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_CENTRAL_BOW_POT_1,  {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_CENTRAL_BOW_POT_2,  {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_BEHIND_GATE_POT_1,  {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_BEHIND_GATE_POT_2,  {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_BEHIND_GATE_POT_3,  {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_BEHIND_GATE_POT_4,  {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_BASEMENT_POT_1,     {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_BASEMENT_POT_2,     {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_RIVER_POT_1,        {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_RIVER_POT_2,        {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_LIKE_LIKE_POT_1,    {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_WATER_TEMPLE_LIKE_LIKE_POT_2,    {[]{return logic->CanBreakPots;}}),    
+  }, {
                   //Exits
                   Entrance(RR_WATER_TEMPLE_LOBBY,    {[]{return logic->Swim && randoCtx->GetDungeon(WATER_TEMPLE)->IsVanilla();}}),
                   Entrance(RR_WATER_TEMPLE_MQ_LOBBY, {[]{return logic->Swim && randoCtx->GetDungeon(WATER_TEMPLE)->IsMQ();}}),

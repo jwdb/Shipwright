@@ -36,6 +36,10 @@ void AreaTable_Init_DeathMountain() {
                   LocationAccess(RC_DMT_TRADE_CLAIM_CHECK,     {[]{return logic->IsAdult && logic->ClaimCheck;}}),
                   LocationAccess(RC_DMT_GS_FALLING_ROCKS_PATH, {[]{return logic->IsAdult && logic->AtNight && (logic->CanUse(RG_MEGATON_HAMMER) || randoCtx->GetTrickOption(RT_DMT_UPPER_GS)) && logic->CanGetNightTimeGS;}}),
                   LocationAccess(RC_DMT_GOSSIP_STONE,          {[]{return true;}}),
+                  LocationAccess(RC_DMC_NEAR_GC_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DMC_NEAR_GC_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DMC_NEAR_GC_POT_3, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_DMC_NEAR_GC_POT_4, {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_DEATH_MOUNTAIN_TRAIL,     {[]{return true;}}),
@@ -102,6 +106,15 @@ void AreaTable_Init_DeathMountain() {
                   LocationAccess(RC_GC_MEDIGORON,              {[]{return logic->IsAdult && logic->AdultsWallet && (logic->CanBlastOrSmash || logic->GoronBracelet);}}),
                   LocationAccess(RC_GC_MAZE_GOSSIP_STONE,      {[]{return logic->CanBlastOrSmash || logic->CanUse(RG_SILVER_GAUNTLETS);}}),
                   LocationAccess(RC_GC_MEDIGORON_GOSSIP_STONE, {[]{return logic->CanBlastOrSmash || logic->GoronBracelet;}}),
+                  LocationAccess(RC_GC_LOWER_STAIRCASE_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_LOWER_STAIRCASE_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_UPPER_STAIRCASE_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_UPPER_STAIRCASE_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_UPPER_STAIRCASE_POT_3, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_MEDIGORON_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_DARUNIA_POT_1, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_DARUNIA_POT_2, {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_GC_DARUNIA_POT_3, {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_DEATH_MOUNTAIN_TRAIL, {[]{return true;}}),

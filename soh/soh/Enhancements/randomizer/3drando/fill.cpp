@@ -1007,7 +1007,7 @@ void ClearProgress() {
 int Fill() {
   auto ctx = Rando::Context::GetInstance();
   int retries = 0;
-  while(retries < 5) {
+  while(retries < 15) {
     placementFailure = false;
     //showItemProgress = false;
     ctx->playthroughLocations.clear();

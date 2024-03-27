@@ -8,7 +8,16 @@ void AreaTable_Init_IceCavern() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_ICE_CAVERN_ENTRYWAY] = Area("Ice Cavern Entryway", "Ice Cavern", RA_ICE_CAVERN, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_ICE_CAVERN_ENTRYWAY] = Area("Ice Cavern Entryway", "Ice Cavern", RA_ICE_CAVERN, NO_DAY_NIGHT_CYCLE, {}, {
+LocationAccess(    RC_ICE_CAVERN_HALL_POT_1,          {[]{return logic->CanBreakPots;}}),        
+LocationAccess(RC_ICE_CAVERN_HALL_POT_2,              {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_1,    {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_2,    {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_3,    {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_ICE_CAVERN_NEAR_END_POT_1,          {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_ICE_CAVERN_NEAR_END_POT_2,          {[]{return logic->CanBreakPots;}}),    
+LocationAccess(RC_ICE_CAVERN_FROZEN_POT_1,            {[]{return logic->CanBreakPots;}}),    
+  }, {
                   //Exits
                   Entrance(RR_ICE_CAVERN_BEGINNING,    {[]{return randoCtx->GetDungeon(ICE_CAVERN)->IsVanilla();}}),
                   Entrance(RR_ICE_CAVERN_MQ_BEGINNING, {[]{return randoCtx->GetDungeon(ICE_CAVERN)->IsMQ() && logic->CanUseProjectile;}}),

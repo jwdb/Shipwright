@@ -1774,9 +1774,6 @@ void DrawRemoteControlMenu() {
     if (ImGui::BeginMenu("Network")) {
         static std::string ip = CVarGetString("gRemote.IP", "127.0.0.1");
         static uint16_t port = CVarGetInteger("gRemote.Port", 43384);
-        bool isFormValid = !isStringEmpty(CVarGetString("gRemote.IP", "127.0.0.1")) && port > 1024 && port < 65535;
-
-        const char* remoteOptions[2] = { "Sail", "Crowd Control"};
         static std::string AnchorName = CVarGetString("gRemote.AnchorName", "");
         static std::string anchorRoomId = CVarGetString("gRemote.AnchorRoomId", "");
         bool isFormValid = !isStringEmpty(CVarGetString("gRemote.IP", "127.0.0.1")) && port > 1024 && port < 65535 && (
@@ -1838,9 +1835,6 @@ void DrawRemoteControlMenu() {
                     ImGui::SetClipboardText("https://crowdcontrol.live");
                 }
                 break;
-        }
-
-        ImGui::Text("Remote IP & Port");
             case GI_SCHEME_ANCHOR:
                 UIWidgets::InsertHelpHoverText(
                     "Anchor is an unofficial co-op mode for Ship of Harkinian. "
@@ -1866,17 +1860,12 @@ void DrawRemoteControlMenu() {
             CVarSetString("gRemote.IP", ip.c_str());
             LUS::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesOnNextTick();
         }
-
-        ImGui::SameLine();
-        ImGui::PushItemWidth(ImGui::GetFontSize() * 5);
         ImGui::SameLine();
         ImGui::SetNextItemWidth(ImGui::GetFontSize() * 5);
         if (ImGui::InputScalar("##gRemote.Port", ImGuiDataType_U16, &port)) {
             CVarSetInteger("gRemote.Port", port);
             LUS::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesOnNextTick();
         }
-
-        ImGui::PopItemWidth();
         if (CVarGetInteger("gRemote.Scheme", GI_SCHEME_SAIL) == GI_SCHEME_ANCHOR) {
             ImGui::Text("Tunic Color & Name");
             static Color_RGBA8 color = CVarGetColor("gRemote.AnchorColor", { 100, 255, 100, 255 });
@@ -1914,8 +1903,6 @@ void DrawRemoteControlMenu() {
 
         ImGui::Spacing();
 
-        ImGui::BeginDisabled(!isFormValid);
-        const char* buttonLabel = GameInteractor::Instance->isRemoteInteractorEnabled ? "Disable" : "Enable";
         if (CVarGetInteger("gRemote.Scheme", GI_SCHEME_SAIL) == GI_SCHEME_ANCHOR) {
             ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(12.0f, 6.0f));
             ImGui::PushStyleVar(ImGuiStyleVar_ButtonTextAlign, ImVec2(0, 0));
@@ -1984,9 +1971,6 @@ void DrawRemoteControlMenu() {
                     case GI_SCHEME_CROWD_CONTROL:
                         CrowdControl::Instance->Enable();
                         break;
-                }
-            }
-        }
                     case GI_SCHEME_ANCHOR:
                         if (!CVarGetInteger("gRemote.AnchorLogWindow", 0) && mAnchorLogWindow) {
                             mAnchorLogWindow->ToggleVisibility();
@@ -2004,9 +1988,6 @@ void DrawRemoteControlMenu() {
 
         if (GameInteractor::Instance->isRemoteInteractorEnabled) {
             ImGui::Spacing();
-            if (GameInteractor::Instance->isRemoteInteractorConnected) {
-                ImGui::Text("Connected");
-            } else {
             if (!GameInteractor::Instance->isRemoteInteractorConnected) {
                 ImGui::Text("Connecting...");
             }
@@ -2032,17 +2013,17 @@ void DrawRemoteControlMenu() {
                         ImGui::EndTooltip();
                     }
                 }
-                if (client.seed != gSaveContext.finalSeed && client.fileNum != 0xFF && gSaveContext.fileNum != 0xFF) {
-                    ImGui::SameLine();
-                    ImGui::TextColored(ImVec4(1, 0, 0, 1), ICON_FA_EXCLAMATION_TRIANGLE);
-                    if (ImGui::IsItemHovered()) {
-                        ImGui::BeginTooltip();
-                        ImGui::Text("Seed mismatch! Continuing will break things!");
-                        ImGui::Text("Yours: %u", gSaveContext.finalSeed);
-                        ImGui::Text("Theirs: %u", client.seed);
-                        ImGui::EndTooltip();
-                    }
-                }
+                // if (client.seed != gSaveContext.finalSeed && client.fileNum != 0xFF && gSaveContext.fileNum != 0xFF) {
+                //     ImGui::SameLine();
+                //     ImGui::TextColored(ImVec4(1, 0, 0, 1), ICON_FA_EXCLAMATION_TRIANGLE);
+                //     if (ImGui::IsItemHovered()) {
+                //         ImGui::BeginTooltip();
+                //         ImGui::Text("Seed mismatch! Continuing will break things!");
+                //         ImGui::Text("Yours: %u", gSaveContext.finalSeed);
+                //         ImGui::Text("Theirs: %u", client.seed);
+                //         ImGui::EndTooltip();
+                //     }
+                // }
             }
 
             ImGui::Spacing();

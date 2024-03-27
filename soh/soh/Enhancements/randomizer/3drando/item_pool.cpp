@@ -832,6 +832,7 @@ void GenerateItemPool() {
     for (RandomizerCheck loc : ctx->GetLocations(ctx->allLocations, Category::cPot)) {
       AddItemToMainPool(Rando::StaticData::GetLocation(loc)->GetVanillaItem());
     }
+  }
   auto fsMode = ctx->GetOption(RSK_FISHSANITY);
   if (fsMode.IsNot(RO_FISHSANITY_OFF)) {
     if (fsMode.Is(RO_FISHSANITY_POND) || fsMode.Is(RO_FISHSANITY_BOTH)) {
@@ -1396,7 +1397,6 @@ void GenerateItemPool() {
     }
   }
   PendingJunkPool.clear();
-}
 }
 
 void AddJunk() {
