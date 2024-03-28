@@ -6847,7 +6847,7 @@ s32 Player_ActionChange_2(Player* this, PlayState* play) {
                                            giEntry.itemId == ITEM_MAGIC_SMALL || giEntry.itemId == ITEM_MAGIC_LARGE);
 
                 // Show cutscene when picking up a item.
-                if (showItemCutscene && !skipItemCutscene && !skipItemCutsceneRando) {
+                if (showItemCutscene && !skipItemCutscene && !skipItemCutsceneRando && !isPotItemToSkip) {
 
                     Player_DetachHeldActor(play, this);
                     func_8083AE40(this, giEntry.objectId);
