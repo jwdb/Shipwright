@@ -124,6 +124,15 @@ void GameInteractor::RawAction::ElectrocutePlayer() {
 }
 
 void GameInteractor::RawAction::GiveItem(uint16_t modId, uint16_t itemId) {
+    if (modId == MOD_RANDOMIZER) {
+        GetItemEntry getItemEntry= Rando::StaticData::RetrieveItem(itemId).GetGIEntry_Copy();
+        if (getItemEntry.getItemId == RG_ICE_TRAP) {
+            gSaveContext.pendingIceTrapCount++;
+        } else {
+            Randomizer_Item_Give(gPlayState, getItemEntry);
+        }
+        return;
+    }
     GetItemEntry getItemEntry = ItemTableManager::Instance->RetrieveItemEntry(modId, itemId);
     Player* player = GET_PLAYER(gPlayState);
     if (getItemEntry.modIndex == MOD_NONE) {

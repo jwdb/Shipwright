@@ -6705,11 +6705,30 @@ void func_8083E4C4(PlayState* play, Player* this, GetItemEntry* giEntry) {
         Item_DropCollectible(play, &this->actor.world.pos, sp1C | 0x8000);
         if ((sp1C != 4) && (sp1C != 8) && (sp1C != 9) && (sp1C != 0xA) && (sp1C != 0) && (sp1C != 1) && (sp1C != 2) &&
             (sp1C != 0x14) && (sp1C != 0x13)) {
-            Item_Give(play, giEntry->itemId);
+            if (giEntry->modIndex == MOD_NONE) {
+                // RANDOTOD: Move this into Item_Give() or some other more central location
+                if (giEntry->getItemId == GI_SWORD_BGS) {
+                    gSaveContext.bgsFlag = true;
+                    gSaveContext.swordHealth = 8;
+                }
+                Item_Give(play, giEntry->itemId);
+            } else {
+                Randomizer_Item_Give(play, *giEntry);
+            }
         }
     } else {
-        Item_Give(play, giEntry->itemId);
+        if (giEntry->modIndex == MOD_NONE) {
+            // RANDOTOD: Move this into Item_Give() or some other more central location
+            if (giEntry->getItemId == GI_SWORD_BGS) {
+                gSaveContext.bgsFlag = true;
+                gSaveContext.swordHealth = 8;
+            }
+            Item_Give(play, giEntry->itemId);
+        } else {
+            Randomizer_Item_Give(play, *giEntry);
+        }
     }
+
     func_80078884((this->getItemId < 0 || this->getItemEntry.getItemId < 0) ? NA_SE_SY_GET_BOXITEM : NA_SE_SY_GET_ITEM);
 }
 
