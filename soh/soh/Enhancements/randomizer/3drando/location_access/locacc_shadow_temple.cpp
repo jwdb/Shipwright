@@ -8,29 +8,7 @@ void AreaTable_Init_ShadowTemple() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_SHADOW_TEMPLE_ENTRYWAY] = Area("Shadow Temple Entryway", "Shadow Temple", RA_SHADOW_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {
-    LocationAccess(    RC_SHADOW_TEMPLE_NEAR_DEAD_HAND_POT_1,   {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_1, {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_2, {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_3, {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_4, {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_5, {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_MAP_CHEST_POT_1,        {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_MAP_CHEST_POT_2,        {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_1,   {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_2,   {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_3,   {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_4,   {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_AFTER_WIND_POT_1,       {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_AFTER_WIND_POT_2,       {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_SPIKE_WALLS_POT_1,      {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_FLOORMASTER_POT_1,      {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_FLOORMASTER_POT_2,      {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_1,       {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_2,       {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_3,       {[]{return logic->CanBreakPots;}}),    
-    LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_4,       {[]{return logic->CanBreakPots;}}),    
-  }, {
+  areaTable[RR_SHADOW_TEMPLE_ENTRYWAY] = Area("Shadow Temple Entryway", "Shadow Temple", RA_SHADOW_TEMPLE, NO_DAY_NIGHT_CYCLE, {}, {}, {
                   //Exits
                   Entrance(RR_SHADOW_TEMPLE_BEGINNING,    {[]{return randoCtx->GetDungeon(SHADOW_TEMPLE)->IsVanilla() && (randoCtx->GetTrickOption(RT_LENS_SHADOW) || logic->CanUse(RG_LENS_OF_TRUTH)) && (logic->CanUse(RG_HOVER_BOOTS) || logic->CanUse(RG_HOOKSHOT));}}),
                   Entrance(RR_SHADOW_TEMPLE_MQ_BEGINNING, {[]{return randoCtx->GetDungeon(SHADOW_TEMPLE)->IsMQ()    && (randoCtx->GetTrickOption(RT_LENS_SHADOW_MQ) || logic->CanUse(RG_LENS_OF_TRUTH)) && (logic->CanUse(RG_HOVER_BOOTS) || logic->CanUse(RG_HOOKSHOT));}}),
@@ -48,6 +26,8 @@ void AreaTable_Init_ShadowTemple() {
                   //Locations
                   LocationAccess(RC_SHADOW_TEMPLE_MAP_CHEST,         {[]{return logic->CanJumpslash;}}),
                   LocationAccess(RC_SHADOW_TEMPLE_HOVER_BOOTS_CHEST, {[]{return (logic->CanUse(RG_KOKIRI_SWORD) || logic->CanUse(RG_MASTER_SWORD) || logic->CanUse(RG_BIGGORON_SWORD));}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_MAP_CHEST_POT_1,   {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_MAP_CHEST_POT_2,   {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_SHADOW_TEMPLE_ENTRYWAY,     {[]{return true;}}),
@@ -62,6 +42,12 @@ void AreaTable_Init_ShadowTemple() {
                   LocationAccess(RC_SHADOW_TEMPLE_COMPASS_CHEST,            {[]{return logic->CanJumpslash;}}),
                   LocationAccess(RC_SHADOW_TEMPLE_EARLY_SILVER_RUPEE_CHEST, {[]{return logic->CanUse(RG_HOVER_BOOTS) || logic->CanUse(RG_HOOKSHOT);}}),
                   LocationAccess(RC_SHADOW_TEMPLE_GS_NEAR_SHIP,             {[]{return false;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_NEAR_DEAD_HAND_POT_1,     {[]{return logic->CanBreakPots;}}),    
+                  LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_1,   {[]{return logic->CanBreakPots;}}),    
+                  LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_2,   {[]{return logic->CanBreakPots;}}),    
+                  LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_3,   {[]{return logic->CanBreakPots;}}),    
+                  LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_4,   {[]{return logic->CanBreakPots;}}),    
+                  LocationAccess(RC_SHADOW_TEMPLE_WHISPERING_WALLS_POT_5,   {[]{return logic->CanBreakPots;}}),  
                 }, {
                   //Exits
                   Entrance(RR_SHADOW_TEMPLE_HUGE_PIT,    {[]{return logic->HasExplosives && logic->IsAdult && logic->SmallKeys(RR_SHADOW_TEMPLE, 1, 2);}}),
@@ -80,6 +66,11 @@ void AreaTable_Init_ShadowTemple() {
                   LocationAccess(RC_SHADOW_TEMPLE_GS_LIKE_LIKE_ROOM,                {[]{return logic->CanJumpslash;}}),
                   LocationAccess(RC_SHADOW_TEMPLE_GS_FALLING_SPIKES_ROOM,           {[]{return logic->Hookshot || (randoCtx->GetTrickOption(RT_SHADOW_UMBRELLA_GS) && logic->HoverBoots);}}),
                   LocationAccess(RC_SHADOW_TEMPLE_GS_SINGLE_GIANT_POT,              {[]{return logic->SmallKeys(RR_SHADOW_TEMPLE, 2, 3) && ((randoCtx->GetTrickOption(RT_LENS_SHADOW_PLATFORM) && randoCtx->GetTrickOption(RT_LENS_SHADOW)) || logic->CanUse(RG_LENS_OF_TRUTH)) && logic->Hookshot;}}),
+
+                  LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_1,             {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_2,             {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_3,             {[]{return logic->CanBreakPots && (randoCtx->GetTrickOption(RT_SHADOW_UMBRELLA) || logic->GoronBracelet);}}),    
+                  LocationAccess(RC_SHADOW_TEMPLE_FALLING_SPIKES_POT_4,             {[]{return logic->CanBreakPots && (randoCtx->GetTrickOption(RT_SHADOW_UMBRELLA) || logic->GoronBracelet);}}),    
                 }, {
                   //Exits
                   Entrance(RR_SHADOW_TEMPLE_WIND_TUNNEL, {[]{return ((randoCtx->GetTrickOption(RT_LENS_SHADOW_PLATFORM) && randoCtx->GetTrickOption(RT_LENS_SHADOW)) || logic->CanUse(RG_LENS_OF_TRUTH)) && logic->Hookshot && logic->SmallKeys(RR_SHADOW_TEMPLE, 3, 4);}}),
@@ -91,6 +82,8 @@ void AreaTable_Init_ShadowTemple() {
                   LocationAccess(RC_SHADOW_TEMPLE_AFTER_WIND_ENEMY_CHEST,  {[]{return logic->CanJumpslash;}}),
                   LocationAccess(RC_SHADOW_TEMPLE_AFTER_WIND_HIDDEN_CHEST, {[]{return true;}}),
                   LocationAccess(RC_SHADOW_TEMPLE_GS_NEAR_SHIP,            {[]{return logic->CanUse(RG_LONGSHOT) && logic->SmallKeys(RR_SHADOW_TEMPLE, 4, 5);}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_AFTER_WIND_POT_1,        {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_AFTER_WIND_POT_2,        {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_SHADOW_TEMPLE_BEYOND_BOAT, {[]{return logic->CanJumpslash && logic->CanUse(RG_ZELDAS_LULLABY) && logic->SmallKeys(RR_SHADOW_TEMPLE, 4, 5);}}),
@@ -102,6 +95,13 @@ void AreaTable_Init_ShadowTemple() {
                   LocationAccess(RC_SHADOW_TEMPLE_BOSS_KEY_CHEST,              {[]{return logic->CanUse(RG_DINS_FIRE);}}),
                   LocationAccess(RC_SHADOW_TEMPLE_INVISIBLE_FLOORMASTER_CHEST, {[]{return logic->CanJumpslash;}}),
                   LocationAccess(RC_SHADOW_TEMPLE_GS_TRIPLE_GIANT_POT,         {[]{return logic->CanAdultAttack;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_1,            {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_2,            {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_3,            {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_AFTER_BOAT_POT_4,            {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_SPIKE_WALLS_POT_1,           {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_FLOORMASTER_POT_1,           {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_SHADOW_TEMPLE_FLOORMASTER_POT_2,           {[]{return logic->CanBreakPots;}}),
   }, {
                   //Exits
                   Entrance(RR_SHADOW_TEMPLE_BOSS_ENTRYWAY, {[]{return (logic->CanUse(RG_FAIRY_BOW) || logic->CanUse(RG_DISTANT_SCARECROW) || (randoCtx->GetTrickOption(RT_SHADOW_STATUE) && logic->HasBombchus)) && logic->SmallKeys(RR_SHADOW_TEMPLE, 5) && logic->CanUse(RG_HOVER_BOOTS) && logic->BossKeyShadowTemple;}})
