@@ -8,16 +8,7 @@ void AreaTable_Init_IceCavern() {
   /*--------------------------
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
-  areaTable[RR_ICE_CAVERN_ENTRYWAY] = Area("Ice Cavern Entryway", "Ice Cavern", RA_ICE_CAVERN, NO_DAY_NIGHT_CYCLE, {}, {
-LocationAccess(    RC_ICE_CAVERN_HALL_POT_1,          {[]{return logic->CanBreakPots;}}),        
-LocationAccess(RC_ICE_CAVERN_HALL_POT_2,              {[]{return logic->CanBreakPots;}}),    
-LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_1,    {[]{return logic->CanBreakPots;}}),    
-LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_2,    {[]{return logic->CanBreakPots;}}),    
-LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_3,    {[]{return logic->CanBreakPots;}}),    
-LocationAccess(RC_ICE_CAVERN_NEAR_END_POT_1,          {[]{return logic->CanBreakPots;}}),    
-LocationAccess(RC_ICE_CAVERN_NEAR_END_POT_2,          {[]{return logic->CanBreakPots;}}),    
-LocationAccess(RC_ICE_CAVERN_FROZEN_POT_1,            {[]{return logic->CanBreakPots;}}),    
-  }, {
+  areaTable[RR_ICE_CAVERN_ENTRYWAY] = Area("Ice Cavern Entryway", "Ice Cavern", RA_ICE_CAVERN, NO_DAY_NIGHT_CYCLE, {}, {}, {
                   //Exits
                   Entrance(RR_ICE_CAVERN_BEGINNING,    {[]{return randoCtx->GetDungeon(ICE_CAVERN)->IsVanilla();}}),
                   Entrance(RR_ICE_CAVERN_MQ_BEGINNING, {[]{return randoCtx->GetDungeon(ICE_CAVERN)->IsMQ() && logic->CanUseProjectile;}}),
@@ -47,6 +38,14 @@ LocationAccess(RC_ICE_CAVERN_FROZEN_POT_1,            {[]{return logic->CanBreak
                   LocationAccess(RC_ICE_CAVERN_GS_SPINNING_SCYTHE_ROOM, {[]{return logic->HookshotOrBoomerang;}}),
                   LocationAccess(RC_ICE_CAVERN_GS_HEART_PIECE_ROOM,     {[]{return logic->BlueFire && logic->HookshotOrBoomerang;}}),
                   LocationAccess(RC_ICE_CAVERN_GS_PUSH_BLOCK_ROOM,      {[]{return logic->BlueFire && (logic->HookshotOrBoomerang || (randoCtx->GetTrickOption(RT_ICE_BLOCK_GS) && logic->IsAdult && logic->CanUse(RG_HOVER_BOOTS)));}}),
+                  LocationAccess(RC_ICE_CAVERN_HALL_POT_1,              {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),        
+                  LocationAccess(RC_ICE_CAVERN_HALL_POT_2,              {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),    
+                  LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_1,    {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),    
+                  LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_2,    {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),    
+                  LocationAccess(RC_ICE_CAVERN_SPINNING_BLADE_POT_3,    {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),    
+                  LocationAccess(RC_ICE_CAVERN_NEAR_END_POT_1,          {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),    
+                  LocationAccess(RC_ICE_CAVERN_NEAR_END_POT_2,          {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),    
+                  LocationAccess(RC_ICE_CAVERN_FROZEN_POT_1,            {[]{return logic->CanBreakPots && (logic->IsAdult || (logic->IsChild && logic->CanChildAttack) );}}),   
   }, {});
   }
 
