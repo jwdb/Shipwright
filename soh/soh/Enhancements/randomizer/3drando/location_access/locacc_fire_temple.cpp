@@ -35,10 +35,10 @@ void AreaTable_Init_FireTemple() {
                 }, {
                   //Locations
                   LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_CHEST, {[]{return true;}}),
-                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_1, {[]{return logic->CanUse(RG_HOOKSHOT)) && logic->CanBreakPots;}}),       
-                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_2, {[]{return logic->CanUse(RG_HOOKSHOT)) && logic->CanBreakPots;}}),   
-                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_3, {[]{return logic->CanUse(RG_HOOKSHOT)) && logic->CanBreakPots;}}),   
-                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_4, {[]{return logic->CanUse(RG_HOOKSHOT)) && logic->CanBreakPots;}}),   
+                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_1, {[]{return logic->CanUse(RG_HOOKSHOT) && logic->CanBreakPots;}}),       
+                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_2, {[]{return logic->CanUse(RG_HOOKSHOT) && logic->CanBreakPots;}}),   
+                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_3, {[]{return logic->CanUse(RG_HOOKSHOT) && logic->CanBreakPots;}}),   
+                  LocationAccess(RC_FIRE_TEMPLE_NEAR_BOSS_POT_4, {[]{return logic->CanUse(RG_HOOKSHOT) && logic->CanBreakPots;}}),   
                 }, {
                   //Exits
                   Entrance(RR_FIRE_TEMPLE_FIRST_ROOM, {[]{return true;}}),
