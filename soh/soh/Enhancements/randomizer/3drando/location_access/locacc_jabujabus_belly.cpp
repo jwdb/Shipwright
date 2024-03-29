@@ -9,23 +9,9 @@ void AreaTable_Init_JabuJabusBelly() {
   |    VANILLA/MQ DECIDER    |
   ---------------------------*/
   areaTable[RR_JABU_JABUS_BELLY_ENTRYWAY] = Area("Jabu Jabus Belly Entryway", "Jabu Jabus Belly", RA_JABU_JABUS_BELLY, NO_DAY_NIGHT_CYCLE, {}, {
-                  LocationAccess(RC_JABU_JABUS_BELLY_ABOVE_BIG_OCTO_POT_1, {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_ABOVE_BIG_OCTO_POT_2, {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_ABOVE_BIG_OCTO_POT_3, {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_1,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_2,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_3,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_4,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_5,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_6,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BASEMENT_POT_1,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BASEMENT_POT_2,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_BASEMENT_POT_3,       {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_1,    {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_2,    {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_3,    {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_4,    {[]{return logic->CanBreakPots;}}),
-                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_5,    {[]{return logic->CanBreakPots;}}),
+                  
+                  
+                  
   }, {
                   //Exits
                   Entrance(RR_JABU_JABUS_BELLY_BEGINNING,    {[]{return randoCtx->GetDungeon(JABU_JABUS_BELLY)->IsVanilla();}}),
@@ -76,6 +62,9 @@ void AreaTable_Init_JabuJabusBelly() {
                 }, {
                   //Locations
                   LocationAccess(RC_JABU_JABUS_BELLY_GS_WATER_SWITCH_ROOM, {[]{return true;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_BASEMENT_POT_1,       {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_BASEMENT_POT_2,       {[]{return logic->CanBreakPots;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_BASEMENT_POT_3,       {[]{return logic->CanBreakPots;}}),
                 }, {
                   //Exits
                   Entrance(RR_JABU_JABUS_BELLY_MAIN_LOWER, {[]{return logic->Swim;}}),
@@ -143,7 +132,11 @@ void AreaTable_Init_JabuJabusBelly() {
                   Entrance(RR_JABU_JABUS_BELLY_FORKED_CORRIDOR, {[]{return Here(RR_JABU_JABUS_BELLY_GREEN_TENTACLE, []{return logic->CanUse(RG_BOOMERANG);});}}),
   });
 
-  areaTable[RR_JABU_JABUS_BELLY_BIGOCTO_ROOM] = Area("Jabu Jabus Belly Bigocto Room", "Jabu Jabus Belly", RA_JABU_JABUS_BELLY, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_JABU_JABUS_BELLY_BIGOCTO_ROOM] = Area("Jabu Jabus Belly Bigocto Room", "Jabu Jabus Belly", RA_JABU_JABUS_BELLY, NO_DAY_NIGHT_CYCLE, {}, {
+                  LocationAccess(RC_JABU_JABUS_BELLY_ABOVE_BIG_OCTO_POT_1, {[]{return logic->CanBreakPots && logic->CanChildAttack && logic->CanUse(RG_BOOMERANG);}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_ABOVE_BIG_OCTO_POT_2, {[]{return logic->CanBreakPots && logic->CanChildAttack && logic->CanUse(RG_BOOMERANG);}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_ABOVE_BIG_OCTO_POT_3, {[]{return logic->CanBreakPots && logic->CanChildAttack && logic->CanUse(RG_BOOMERANG);}}),
+                }, {
                   //Exits
                   Entrance(RR_JABU_JABUS_BELLY_MAIN_LOWER,    {[]{return true;}}),
                   Entrance(RR_JABU_JABUS_BELLY_ABOVE_BIGOCTO, {[]{return Here(RR_JABU_JABUS_BELLY_BIGOCTO_ROOM, []{return (logic->CanUse(RG_BOOMERANG) || logic->Nuts) && (logic->CanUse(RG_KOKIRI_SWORD) || logic->CanUse(RG_STICKS));});}}),
@@ -153,7 +146,13 @@ void AreaTable_Init_JabuJabusBelly() {
                   //Events
                   EventAccess(&logic->FairyPot, {[]{return true;}}),
                   EventAccess(&logic->NutPot,   {[]{return true;}}),
-                }, {}, {
+                }, {
+                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_1,    {[]{return logic->CanBreakPots && logic->HookshotOrBoomerang;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_2,    {[]{return logic->CanBreakPots && logic->HookshotOrBoomerang;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_3,    {[]{return logic->CanBreakPots && logic->HookshotOrBoomerang;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_4,    {[]{return logic->CanBreakPots && logic->HookshotOrBoomerang;}}),
+                  LocationAccess(RC_JABU_JABUS_BELLY_TWO_OCTOROK_POT_5,    {[]{return logic->CanBreakPots && logic->HookshotOrBoomerang;}}),
+                }, {
                   //Exits
                   Entrance(RR_JABU_JABUS_BELLY_LIFT_UPPER, {[]{return logic->CanUse(RG_BOOMERANG);}}),
   });
@@ -257,6 +256,12 @@ void AreaTable_Init_JabuJabusBelly() {
                  // Locations
                  LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_HEART, { [] { return logic->JabuJabusBellyClear; } }),
                  LocationAccess(RC_BARINADE, { [] { return logic->JabuJabusBellyClear; } }),
+                 LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_1,       {[]{return logic->CanBreakPots;}}),
+                 LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_2,       {[]{return logic->CanBreakPots;}}),
+                 LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_3,       {[]{return logic->CanBreakPots;}}),
+                 LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_4,       {[]{return logic->CanBreakPots;}}),
+                 LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_5,       {[]{return logic->CanBreakPots;}}),
+                 LocationAccess(RC_JABU_JABUS_BELLY_BARINADE_POT_6,       {[]{return logic->CanBreakPots;}}),
              },
              {
                  // Exits
