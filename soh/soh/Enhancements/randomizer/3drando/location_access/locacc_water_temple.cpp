@@ -13,7 +13,9 @@ LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_2_POT_1, {[]{return logic->CanBreakPot
 LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_2_POT_2, {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),
 LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_1_POT_1, {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),
 LocationAccess(RC_WATER_TEMPLE_MAIN_LEVEL_1_POT_2, {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),
-
+LocationAccess(RC_WATER_TEMPLE_NEAR_COMPASS_POT_1, {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),
+LocationAccess(RC_WATER_TEMPLE_NEAR_COMPASS_POT_2, {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),
+LocationAccess(RC_WATER_TEMPLE_NEAR_COMPASS_POT_3, {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),
 LocationAccess(RC_WATER_TEMPLE_TORCH_POT_1,        {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),    
 LocationAccess(RC_WATER_TEMPLE_TORCH_POT_2,        {[]{return logic->CanBreakPots && (logic->Hookshot || logic->HoverBoots) && logic->HasExplosives && logic->ZeldasLullaby && (logic->IronBoots || logic->CanDive);}}),  
 LocationAccess(RC_WATER_TEMPLE_CENTRAL_BOW_POT_1,  {[]{return logic->CanBreakPots && logic->ProgressiveStrength && logic->ZeldasLullaby && ((logic->Bow && (logic->HoverBoots || logic->Longshot)));}}),
