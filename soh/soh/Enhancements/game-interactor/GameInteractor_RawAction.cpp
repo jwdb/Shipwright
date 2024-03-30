@@ -144,7 +144,7 @@ void GameInteractor::RawAction::GiveItem(uint16_t modId, uint16_t itemId) {
         if (getItemEntry.getItemId == RG_ICE_TRAP) {
             gSaveContext.pendingIceTrapCount++;
         } else {
-            Randomizer_Item_Give(gPlayState, getItemEntry);
+            Randomizer_Item_Give(gPlayState, (GetItemEntry)getItemEntry);
         }
     }
 };
