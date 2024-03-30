@@ -353,9 +353,7 @@ endif()
 # Compile definitions
 ################################################################################
 find_package(SDL2 REQUIRED)
-if(NOT SDL2_FOUND)
-    message(STATUS "SDL2 not found")
-endif()
+add_library(SDL2::Core ALIAS SDL2::SDL2)
 set(SDL2-INCLUDE ${SDL2_INCLUDE_DIRS})
 
 if (BUILD_REMOTE_CONTROL)
