@@ -722,11 +722,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
 		)
 	endif()
 elseif(CMAKE_SYSTEM_NAME STREQUAL "NintendoSwitch")
-        
-    add_library(SDL2::Core UNKNOWN IMPORTED)
-    set_target_properties(SDL2::Core PROPERTIES
-                            IMPORTED_LOCATION "${SDL2_LIBRARY}"
-                            INTERFACE_INCLUDE_DIRECTORIES "${SDL2_INCLUDE_DIR}")
+    find_package(SDL2 REQUIRED)
+    add_library(SDL2::SDL2 ALIAS SDL2::Core)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
     set(ADDITIONAL_LIBRARY_DEPENDENCIES
