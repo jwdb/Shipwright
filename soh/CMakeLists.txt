@@ -727,7 +727,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "NintendoSwitch")
     set(ADDITIONAL_LIBRARY_DEPENDENCIES
         "libultraship;"
         "ZAPDUtils;"
-        SDL2::SDL2
+        SDL2::Core
         "$<$<BOOL:${BUILD_REMOTE_CONTROL}>:SDL2::Net>"
         -lglad
         Threads::Threads
@@ -751,7 +751,7 @@ else()
         "libultraship;"
         "ZAPDUtils;"
 		"ZAPDLib;"
-		SDL2::SDL2
+		SDL2::Core
         "$<$<BOOL:${BUILD_REMOTE_CONTROL}>:SDL2::Net>"
 		${CMAKE_DL_LIBS}
 		Threads::Threads
