@@ -125,7 +125,7 @@ void GameInteractor::RawAction::ElectrocutePlayer() {
 
 void GameInteractor::RawAction::GiveItem(uint16_t modId, uint16_t itemId) {
     if (modId == MOD_RANDOMIZER) {
-        GetItemEntry getItemEntry= Rando::StaticData::RetrieveItem(itemId).GetGIEntry_Copy();
+        GetItemEntry getItemEntry= Rando::StaticData::RetrieveItem((RandomizerGet)itemId).GetGIEntry_Copy();
         if (getItemEntry.getItemId == RG_ICE_TRAP) {
             gSaveContext.pendingIceTrapCount++;
         } else {
