@@ -70,6 +70,7 @@
 
 #ifdef __SWITCH__
 #include <port/switch/SwitchImpl.h>
+#include <switch.h>
 #elif defined(__WIIU__)
 #include <port/wiiu/WiiUImpl.h>
 #include <coreinit/debug.h> // OSFatal
@@ -1011,6 +1012,8 @@ extern "C" void InitOTR() {
 
 #ifdef __SWITCH__
     LUS::Switch::Init(LUS::PreInitPhase);
+    
+    socketInitializeDefault();
 #elif defined(__WIIU__)
     LUS::WiiU::Init(appShortName);
 #endif
