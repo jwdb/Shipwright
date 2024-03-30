@@ -353,7 +353,11 @@ endif()
 # Compile definitions
 ################################################################################
 find_package(SDL2 REQUIRED)
-add_library(SDL2::Core ALIAS SDL2::SDL2)
+
+add_library(SDL2::Core UNKNOWN IMPORTED)
+set_target_properties(SDL2::Core PROPERTIES
+                        IMPORTED_LOCATION "${SDL2_LIBRARY}"
+                        INTERFACE_INCLUDE_DIRECTORIES "${SDL2_INCLUDE_DIR}")
 set(SDL2-INCLUDE ${SDL2_INCLUDE_DIRS})
 
 if (BUILD_REMOTE_CONTROL)
