@@ -220,8 +220,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ninja-build
-        sudo apt-get install -y $(cat .github/workflows/apt-deps.txt)
+        sudo apt-get install -y clang ninja-build lsb-release libsdl2-dev libpng-dev libsdl2-net-dev libboost-dev libopengl-dev
         sudo apt-get remove -y cmake
         wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-x86_64.sh -O /tmp/cmake.sh
         sudo sh /tmp/cmake.sh --prefix=/usr/local/ --exclude-subdir
@@ -238,33 +237,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-switch-ccache-${{ github.ref }}
           ${{ runner.os }}-switch-ccache-
-        path: |
-          SDL2-2.28.5
-          SDL2_net-2.2.0
-    - name: Install latest SDL
-      run: |
-        export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
-        if [ ! -d "SDL2-2.28.5" ]; then
-          wget https://www.libsdl.org/release/SDL2-2.28.5.tar.gz
-          tar -xzf SDL2-2.28.5.tar.gz
-        fi
-        cd SDL2-2.28.5
-        ./configure --enable-hidapi-libusb
-        make -j 10
-        sudo make install
-        sudo cp -av /usr/local/lib/libSDL* /lib/x86_64-linux-gnu/
-    - name: Install latest SDL_net
-      run: |
-        export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
-        if [ ! -d "SDL2_net-2.2.0" ]; then
-          wget https://www.libsdl.org/projects/SDL_net/release/SDL2_net-2.2.0.tar.gz
-          tar -xzf SDL2_net-2.2.0.tar.gz
-        fi
-        cd SDL2_net-2.2.0
-        ./configure
-        make -j 10
-        sudo make install
-        sudo cp -av /usr/local/lib/libSDL* /lib/x86_64-linux-gnu/
     - name: Build SoH
       run: |
         cmake -H. -Bbuild-switch -GNinja -DCMAKE_TOOLCHAIN_FILE=/opt/devkitpro/cmake/Switch.cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_C_COMPILER_LAUNCHER=ccache  -DBUILD_REMOTE_CONTROL=1
