@@ -721,7 +721,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
 		)
 	endif()
 elseif(CMAKE_SYSTEM_NAME STREQUAL "NintendoSwitch")
-    find_package(SDL2)
+    find_package(SDL2 REQUIRED)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
     set(ADDITIONAL_LIBRARY_DEPENDENCIES
