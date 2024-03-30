@@ -353,6 +353,9 @@ endif()
 # Compile definitions
 ################################################################################
 find_package(SDL2 REQUIRED)
+if(NOT SDL2_FOUND)
+    message(STATUS "SDL2 not found")
+endif()
 set(SDL2-INCLUDE ${SDL2_INCLUDE_DIRS})
 
 if (BUILD_REMOTE_CONTROL)
