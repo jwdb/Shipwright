@@ -9,12 +9,20 @@
 #include <type_traits>
 #include <libultraship/libultraship.h>
 
+#ifdef __SWITCH__
+    #include <switch.h>
+#endif
+
 // MARK: - Remote
 
 void GameInteractor::EnableRemoteInteractor() {
     if (isRemoteInteractorEnabled) {
         return;
     }
+
+    #ifdef __SWITCH__
+        socketInitializeDefault();
+    #endif
 
     if (SDLNet_ResolveHost(&remoteIP, CVarGetString("gRemote.IP", "127.0.0.1"), CVarGetInteger("gRemote.Port", 43384)) == -1) {
         SPDLOG_ERROR("[GameInteractor] SDLNet_ResolveHost: {}", SDLNet_GetError());
