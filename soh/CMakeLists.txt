@@ -149,11 +149,6 @@ file(GLOB_RECURSE soh__Enhancements RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     "soh/Enhancements/*.mm"
 )
 
-file(GLOB_RECURSE soh__platform RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-    "soh/platform/*.c"
-    "soh/platform/*.h"
-)
-
 list(REMOVE_ITEM soh__Enhancements "soh/Enhancements/gamecommand.h")
 list(FILTER soh__Enhancements EXCLUDE REGEX "soh/Enhancements/gfx.*")
 
