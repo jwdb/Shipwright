@@ -58,7 +58,6 @@ jobs:
         path: soh.otr
         retention-days: 1
   build-macos:
-    if: false
     needs: generate-soh-otr
     runs-on: ${{ (vars.MAC_RUNNER && fromJSON(vars.MAC_RUNNER)) || 'macos-12' }}
     steps:
@@ -260,7 +259,6 @@ jobs:
           soh.otr
           readme.txt
   build-wiiu:
-    if: false
     needs: generate-soh-otr
     runs-on: ${{ (vars.LINUX_RUNNER && fromJSON(vars.LINUX_RUNNER)) || 'ubuntu-latest' }}
     container:
@@ -309,7 +307,6 @@ jobs:
           soh.otr
           readme.txt
   build-windows:
-    if: false
     needs: generate-soh-otr
     runs-on: ${{ (vars.WINDOWS_RUNNER && fromJSON(vars.WINDOWS_RUNNER)) || 'windows-latest' }}
     steps:
