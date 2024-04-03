@@ -70,7 +70,7 @@
 
 #ifdef __SWITCH__
 #include <port/switch/SwitchImpl.h>
-#include "../platform/switchImpl.h"
+#include "platform/switchImpl.h"
 #elif defined(__WIIU__)
 #include <port/wiiu/WiiUImpl.h>
 #include <coreinit/debug.h> // OSFatal
