@@ -352,7 +352,7 @@ endif()
 ################################################################################
 # Compile definitions
 ################################################################################
-find_package(SDL2 REQUIRED)
+find_package(SDL2)
 
 set(SDL2-INCLUDE ${SDL2_INCLUDE_DIRS})
 
