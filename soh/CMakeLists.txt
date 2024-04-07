@@ -691,7 +691,7 @@ endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     find_package(glfw3 REQUIRED)
-    add_library(SDL2::Core ALIAS SDL2::SDL2)
+    add_library(SDL2::SDL2 ALIAS SDL2::Core)
 	if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
 		set(ADDITIONAL_LIBRARY_DEPENDENCIES
 			"libultraship;"
