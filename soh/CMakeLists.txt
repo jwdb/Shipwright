@@ -691,15 +691,14 @@ endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     find_package(glfw3 REQUIRED)
-    add_library(SDL2::SDL2 ALIAS SDL2::Core)
 	if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
 		set(ADDITIONAL_LIBRARY_DEPENDENCIES
 			"libultraship;"
 			"ZAPDUtils;"
 			"ZAPDLib;"
 			"glu32;"
-			"SDL2::Core;"
-			"SDL2::Main;"
+			"SDL2::SDL2;"
+			"SDL2::SDL2main;"
             "$<$<BOOL:${BUILD_REMOTE_CONTROL}>:SDL2_net::SDL2_net-static>"
 			"glfw;"
 			"winmm;"
@@ -713,8 +712,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
 			"ZAPDUtils;"
 			"ZAPDLib;"
 			"glu32;"
-			"SDL2::Core;"
-			"SDL2::Main;"
+			"SDL2::SDL2;"
+			"SDL2::SDL2main;"
 			"glfw;"
 			"winmm;"
 			"imm32;"
